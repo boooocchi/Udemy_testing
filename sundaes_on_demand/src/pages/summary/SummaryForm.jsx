@@ -3,10 +3,12 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Popover from "react-bootstrap/Popover";
+import { useOrderDetails } from "../../context/OrderDetails";
 
 export default function SummaryForm() {
   const [tcChecked, setTcChecked] = useState(false);
 
+  const { setOrderState } = useOrderDetails();
   const popover = (
     <Popover id="popover-basic">
       <Popover.Body>No icecream will be delivered</Popover.Body>
@@ -21,6 +23,9 @@ export default function SummaryForm() {
     </span>
   );
 
+  const goToCompletePage = () => {
+    setOrderState("complete");
+  };
   return (
     <Form>
       <Form.Group controlId="terms-and-conditions">
@@ -31,7 +36,12 @@ export default function SummaryForm() {
           label={checkboxLabel}
         />
       </Form.Group>
-      <Button variant="primary" type="submit" disabled={!tcChecked}>
+      <Button
+        variant="primary"
+        type="submit"
+        disabled={!tcChecked}
+        onClick={goToCompletePage}
+      >
         Confirm order
       </Button>
     </Form>

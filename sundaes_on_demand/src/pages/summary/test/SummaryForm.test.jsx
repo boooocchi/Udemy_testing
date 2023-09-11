@@ -1,5 +1,5 @@
 import SummaryForm from "../SummaryForm";
-import { render, screen } from "@testing-library/react";
+import { render, screen } from "../../../test-utils/testing-library-utils";
 import userEvent from "@testing-library/user-event";
 
 test("checkbox initial condition and feature of enabling and disabling the button", async () => {

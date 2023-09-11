@@ -21,6 +21,7 @@ export function OrderDetailsProvider(props) {
     scoops: {}, // example: { Chocolate: 1, Vanilla: 2 }
     toppings: {} // example: { "Gummi Bears": 1 }
   });
+  const [orderState, setOrderState] = useState("entry");
 
   function updateItemCount(itemName, newItemCount, optionType) {
     // make a copy of existing state
@@ -64,6 +65,13 @@ export function OrderDetailsProvider(props) {
     toppings: calculateTotal("toppings")
   };
 
-  const value = { optionCounts, totals, updateItemCount, resetOrder };
+  const value = {
+    optionCounts,
+    totals,
+    updateItemCount,
+    resetOrder,
+    setOrderState,
+    orderState
+  };
   return <OrderDetails.Provider value={value} {...props} />;
 }
