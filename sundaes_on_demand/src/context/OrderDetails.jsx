@@ -28,9 +28,11 @@ export function OrderDetailsProvider(props) {
     const newOptionCounts = { ...optionCounts };
 
     // update the copy with the new information
+
     newOptionCounts[optionType][itemName] = newItemCount;
 
     // update the state with the updated copy
+
     setOptionCounts(newOptionCounts);
 
     // alternate way using function argument to setOptionCounts

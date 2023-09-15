@@ -14,7 +14,9 @@ const OrderEntry = () => {
       <Options optionsType="scoops"></Options>
       <Options optionsType="toppings"></Options>
       <h2>Grand total: {formatCurrency(grandTotal)}</h2>
-      <button onClick={goToSummaryPage}>See Order Summary</button>
+      <button onClick={goToSummaryPage} disabled={totals.scoops < 1}>
+        See Order Summary
+      </button>
     </>
   );
 };
